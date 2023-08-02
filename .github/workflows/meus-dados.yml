@@ -1,0 +1,21 @@
+name: Meus-Dados
+on:
+  push:
+    branches:
+      - main
+  
+jobs:
+  Meus-Dados:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Meus-Dados
+      run: |
+        echo "NOME : $NOME"
+        echo "RA : $RA"
+        echo "CURSO : $CURSO"
+       
+      env:
+        NOME: ${{ vars.NOME }}
+        RA: ${{ vars.RA }}
+        CURSO: ${{ vars.CURSO }}
