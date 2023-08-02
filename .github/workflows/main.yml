@@ -1,0 +1,36 @@
+name: Main 
+on: [push]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Run on Linux
+      run: echo "Hello World!"
+
+  windows:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Run on Windows
+      run: echo "Hello World!"
+
+  macos:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Run on macOS
+      run: echo "Hello World!"
+
+  final:
+    runs-on: ubuntu-latest
+    needs: [linux, windows, macos]
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Final Step
+      run: echo "Finalizado!"
